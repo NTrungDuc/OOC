@@ -1,0 +1,5 @@
+Short Description:
+Out of Control is an action cowboy game where players must move obstacles to clear their path. However, every 10 seconds, one random direction becomes restricted, adding a challenging twist to the gameplay.
+
+Long Description:
+In Out of Control, you step into the boots of a wild west cowboy navigating through a treacherous landscape filled with obstacles. Your mission is to move these obstacles out of your way, clearing a path to reach your destination. But there's a catch—every 10 seconds, one of the four movement directions (up, down, left, right) is randomly blocked, leaving you with fewer options to maneuver. This unpredictable restriction forces you to think quickly and adapt your strategy on the fly, making every moment in the game a test of your reflexes and planning skills. Can you stay in control when the world around you goes Out of Control?
