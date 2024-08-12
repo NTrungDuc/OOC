@@ -23,6 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7461065452980478898}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,7 +32,6 @@ Transform:
   - {fileID: 3350006323886364877}
   - {fileID: 4142429198252541131}
   m_Father: {fileID: 7461065453285366118}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7461065453285366121
 GameObject:
@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 7461065453285366118}
   - component: {fileID: 7461065453285366119}
   - component: {fileID: 7461065453285366116}
-  - component: {fileID: -556840232774304177}
   - component: {fileID: -2889491538335927421}
   m_Layer: 0
   m_Name: Desert (2)
@@ -60,6 +59,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7461065453285366121}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 46, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -67,7 +67,6 @@ Transform:
   m_Children:
   - {fileID: 7461065452980478899}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &7461065453285366119
 TilemapRenderer:
@@ -1070,19 +1069,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &-556840232774304177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7461065453285366121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 298759588f8345c45ac25a0fa4e443cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
 --- !u!19719996 &-2889491538335927421
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -1093,17 +1079,38 @@ TilemapCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+  m_UseDelaunayMesh: 0
 --- !u!1001 &5521854102113092025
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7461065452980478899}
     m_Modifications:
     - target: {fileID: 7123581957940910452, guid: 99e9bbd4e376ec241a5155804a7c06de, type: 3}
@@ -1155,6 +1162,9 @@ PrefabInstance:
       value: snake
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99e9bbd4e376ec241a5155804a7c06de, type: 3}
 --- !u!4 &3350006323886364877 stripped
 Transform:
@@ -1166,6 +1176,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7461065452980478899}
     m_Modifications:
     - target: {fileID: 7213750763720884504, guid: 8d71b0f0f5dc26146911896e47a7b720, type: 3}
@@ -1217,6 +1228,9 @@ PrefabInstance:
       value: Cactus
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d71b0f0f5dc26146911896e47a7b720, type: 3}
 --- !u!4 &4142429198252541131 stripped
 Transform:
