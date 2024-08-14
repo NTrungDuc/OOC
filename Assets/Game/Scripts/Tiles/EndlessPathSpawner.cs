@@ -70,6 +70,10 @@ public class EndlessPathSpawner : MonoBehaviour
         speed *= 1.5f;
         yield return new WaitForSeconds(30);
         speed *= 1.5f;
+        yield return new WaitForSeconds(30);
+        speed *= 1.5f;
+        yield return new WaitForSeconds(30);
+        speed *= 1.5f;
     }
     public IEnumerator freezeTime()
     {
