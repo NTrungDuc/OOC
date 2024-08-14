@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EndlessPathSpawner : MonoBehaviour
 {
+    private static EndlessPathSpawner instance;
+    public static EndlessPathSpawner Instace { get { return instance; } }
     public List<GameObject> pathPrefabs;
     public float spawnDistance = 10f;
     public float speed = 5f;
@@ -12,12 +14,17 @@ public class EndlessPathSpawner : MonoBehaviour
     private List<GameObject> spawnedPaths = new List<GameObject>();
     private float lastSpawnPositionX;
 
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         for (int i = 0; i < initialTiles; i++)
         {
             SpawnPath(i * spawnDistance);
         }
+        StartCoroutine(IncreaseSpeedAfterDelay());
     }
 
     void Update()
@@ -56,5 +63,19 @@ public class EndlessPathSpawner : MonoBehaviour
 
         spawnedPaths.Add(newPath);
         lastSpawnPositionX = spawnPositionX;
+    }
+    private IEnumerator IncreaseSpeedAfterDelay()
+    {
+        yield return new WaitForSeconds(30);
+        speed *= 1.5f;
+        yield return new WaitForSeconds(30);
+        speed *= 1.5f;
+    }
+    public IEnumerator freezeTime()
+    {
+        float currentSpeed = speed;
+        speed = 0.5f;
+        yield return new WaitForSeconds(5f);
+        speed = currentSpeed;
     }
 }

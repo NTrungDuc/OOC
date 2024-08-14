@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour
     private bool canMoveRight = true;
     //limit move
     public float minX, maxX, minY, maxY;
+    //skill shield
+    bool isActiveShield = false;
+    [SerializeField] private GameObject shield;
     private void Awake()
     {
         instance = this;
@@ -82,12 +85,35 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
-
+    public void freeDirection()
+    {
+        canMoveUp = true;
+        canMoveDown = true;
+        canMoveLeft = true;
+        canMoveRight = true;
+    }
+    public void activeShield(bool isActive)
+    {
+        isActiveShield = isActive;
+        shield.SetActive(isActive);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Obstacle")
         {
-            UIManager.Instace.updateHP(10);
+            if (!isActiveShield)
+            {
+                UIManager.Instace.updateHP(10);
+            }
+            else
+            {
+                activeShield(false);
+            }
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.tag == "Water")
+        {
+            UIManager.Instace.updateScore(1);
             Destroy(collision.gameObject);
         }
     }
