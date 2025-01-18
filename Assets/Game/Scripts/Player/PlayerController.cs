@@ -27,10 +27,6 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        if (playerState == PlayerState.Death)
-        {
-            return;
-        }
         Movement();
     }
     void Movement()

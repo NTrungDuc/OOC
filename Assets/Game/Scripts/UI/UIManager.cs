@@ -10,10 +10,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text txtOOC;
     [SerializeField] private List<string> OOC;
     [SerializeField] private Text txtHP;
-    private int hp = 100;
+    public int hp = 100;
     [SerializeField] private Text txtWater;
     int countWater = 0;
     [SerializeField] private GameObject DeathPanel;
+    public float timeLockDir;
+    public Text countdownText;
+    public int countdownTime = 3;
 
     private bool isPaused = false;
     private void Awake()
@@ -22,9 +25,25 @@ public class UIManager : MonoBehaviour
     }
     void Start()
     {
+        StartCoroutine(Countdown());
         StartCoroutine(RandomSelectCoroutine());
     }
 
+    IEnumerator Countdown()
+    {
+        while (countdownTime > 0)
+        {
+            countdownText.text = countdownTime.ToString();
+            Time.timeScale = 0;
+            yield return new WaitForSecondsRealtime(1f);
+            countdownTime--;
+        }
+
+        countdownText.text = "Start!";
+        yield return new WaitForSecondsRealtime(1f);
+        countdownText.gameObject.SetActive(false);
+        Time.timeScale = 1;
+    }
     IEnumerator RandomSelectCoroutine()
     {
         while (true)
@@ -38,7 +57,7 @@ public class UIManager : MonoBehaviour
                 string randomElement = GetRandomElement(OOC);
                 txtOOC.text = "OUT OF CONTROL!\r\nForbidden Direction: " + randomElement;
                 PlayerController.Instace.SetDirectionLock(randomElement);
-                yield return new WaitForSeconds(10f);
+                yield return new WaitForSeconds(timeLockDir);
             }
         }
     }
@@ -56,6 +75,10 @@ public class UIManager : MonoBehaviour
     }
     public void updateHP(int value)
     {
+        if (PlayerController.Instace.playerState == PlayerState.Death)
+        {
+            return;
+        }
         hp -= value;
         txtHP.text = "HP: " + hp.ToString();
         if (hp <= 0)
@@ -66,6 +89,9 @@ public class UIManager : MonoBehaviour
     }
     public void updateScore(int value)
     {
+        if(PlayerController.Instace.playerState == PlayerState.Death){
+            return;
+        }
         countWater += value;
         txtWater.text = ": " + countWater.ToString();
     }

@@ -70,6 +70,7 @@ public class EndlessPathSpawner : MonoBehaviour
         speed *= 1.5f;
         yield return new WaitForSeconds(30);
         speed *= 1.5f;
+        UIManager.Instace.timeLockDir /= 2;
         yield return new WaitForSeconds(30);
         speed *= 1.5f;
         yield return new WaitForSeconds(30);
